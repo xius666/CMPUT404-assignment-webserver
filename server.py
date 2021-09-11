@@ -28,11 +28,23 @@ import socketserver
 
 
 class MyWebServer(socketserver.BaseRequestHandler):
-    
     def handle(self):
+        self.base_url = "http://127.0.0.1:8080/"
+        self.reply = "HTTP/1.1 "
         self.data = self.request.recv(1024).strip()
         print ("Got a request of: %s\n" % self.data)
-        self.request.sendall(bytearray("OK",'utf-8'))
+       # self.request.sendall(bytearray("OK",'utf-8'))
+        if len(self.data)>0:
+           self.parse()
+        print("data is "+self.reply)
+        self.request.sendall(bytearray(self.reply,'utf-8'))
+    def parse(self):
+        #parse the request data into list
+        data_list = self.data.decode("utf-8").split(" ")
+        method = data_list[0]
+        directory = data_list[1]
+        if method == "GET":
+            self.reply += "OK 200\r"
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8080
