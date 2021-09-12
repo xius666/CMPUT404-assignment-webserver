@@ -45,6 +45,8 @@ class MyWebServer(socketserver.BaseRequestHandler):
         directory = data_list[1]
         if method == "GET":
             self.reply += "OK 200\r"
+        else:
+            self.reply +="405 Method Not Allowed"
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8080
