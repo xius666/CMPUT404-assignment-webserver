@@ -7,6 +7,8 @@ See requirements.org (plain-text) for a description of the project.
 
 Make a simple webserver.
 
+written by Shiyu Xiu
+
 Contributors / Licensing
 ========================
 
