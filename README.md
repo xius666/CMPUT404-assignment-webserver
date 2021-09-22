@@ -7,7 +7,6 @@ See requirements.org (plain-text) for a description of the project.
 
 Make a simple webserver.
 
-written by Shiyu Xiu
 
 Contributors / Licensing
 ========================
@@ -20,6 +19,8 @@ server.py contains contributions from:
 * Eddie Antonio Santos
 * Jackson Z Chang
 * Mandy Meindersma 
+* Shiyu Xiu
+
 
 But the server.py example is derived from the python documentation
 examples thus some of the code is Copyright © 2001-2013 Python
