@@ -81,6 +81,14 @@ class MyWebServer(socketserver.BaseRequestHandler):
                             for line in css_file:
                                 self.response += line + "\r\n"
                             css_file.close()
+                        else:
+                            #serve other file
+                            self.response += "200 OK\r\nContent-Type: application/octet-stream; charset=UTF-8\r\n\r\n"
+                            f = open("www"+directory)
+                            for line in f:
+                                self.response += line + "\r\n"
+                            f.close()
+
                     else:
                         self.response+="200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n"
                         file = open("www"+directory+"index.html")
@@ -105,6 +113,13 @@ class MyWebServer(socketserver.BaseRequestHandler):
                             for line in css_file:
                                 self.response += line + "\r\n"
                             css_file.close()
+                        else:
+                             #serve other file
+                            self.response += "200 OK\r\nContent-Type: application/octet-stream; charset=UTF-8\r\n\r\n"
+                            f = open("www"+directory)
+                            for line in f:
+                                self.response += line + "\r\n"
+                            f.close()
                     else:
                         self.response += "301 Moved Permanently\r\n" + "Location: " + self.base_url + directory + "/\r\n"
                 else:
